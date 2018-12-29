@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"> 
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>星巴克</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="dist/css/swiper.min.css">
+	<script src="vue.js"></script>
+</head>
+<body>
+<script>
+        var pixelRatio = 1 / window.devicePixelRatio;
+        document.write('<meta name="viewport" content="width=device-width,initial-scale=' + pixelRatio + ',minimum-scale=' + pixelRatio + ',maximum-scale=' + pixelRatio + '" />');
+        var html = document.getElementsByTagName('html')[0];
+        var pageWidth = html.getBoundingClientRect().width;
+        html.style.fontSize = pageWidth / 10 + "px";
+    </script>
+
+
+                                 <!-- 头部标签 -->
+    <div id="top"><my-h3></my-h3></div>
+    <script>
+new Vue({
+  el: '#top',
+  components:{
+    "my-h3":{
+      template:'<h3>心情惬意，来杯咖啡吧 ☕</h3>'
+    },
+  }
+})
+</script>
+    <script src="dist/js/swiper.min.js"></script>
+
+
+
+                                  <!-- 顶部轮播图 -->
+    <div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide" style="margin-left: 0px;"><img src="img/d.jpg" alt="" id="img1"></div>
+        <div class="swiper-slide" style="margin-left: 0px;"><img src="img/e.jpg" alt="" id="img1"></div>
+    </div>
+    <div class="swiper-button-next"></div>
+</div>
+<script>        
+  var mySwiper = new Swiper ('.swiper-container', {
+    autoplay: true,
+    navigation: {
+      prevEl: '.swiper-button-prev',
+    },
+  })        
+  </script>
+
+
+                                    <!-- 图片展示 -->
+	<div id="one">
+      <img :src="item.pic" :title="item.title" alt="" v-for="item in imgList" id="img">
+  </div> 
+	<script>
+     let vm = new Vue({
+     	el:'#one',
+     	data:{
+        imgList:[{
+          'pic':'img/a.jpg',
+        },{
+          'pic':'img/b.jpg',
+           },{
+          'pic':'img/c.jpg',
+        }]
+     	}
+     });
+  </script>
+
+
+                                <!-- 星享俱乐部 -->
+  <div id="two">
+  <my-h4></my-h4>
+  <my-h5></my-h5>
+  </div>
+  <script>
+new Vue({
+  el: '#two',
+  components:{
+    "my-h4":{
+      template:'<h4>星享俱乐部</h4>'
+    },
+    "my-h5":{
+      template:'<h5>开启您的星享之旅，星星越多、会员等<br>级越高、好礼越丰富。<a>了解更多›</a></h5>'
+    },
+  }
+})
+</script>
+
+
+
+                         <!-- 星享俱乐部注册登录 -->
+  <div id="for">
+  <ul>
+    <li v-for="site in sites">
+      <div id="for1">{{ site.tu }}</div>
+    </li>
+  </ul>
+</div>
+<script>
+new Vue({
+  el: '#for',
+  data: {
+    sites: [
+      { tu: '注册' },
+      { tu: '登录' },
+    ]
+  }
+})
+</script>
+
+
+
+
+                      <!-- 星享俱乐部图 -->
+<div id="five">
+<img src="https://www.starbucks.com.cn/assets/images/logo-msr-new.svg" alt="" id="five1">
+</div>
+
+
+
+
+                        <!-- 星巴克精选 -->
+  <div id="twoz">
+  <my-h4></my-h4>
+  <my-h5></my-h5>
+  </div>
+  <script>
+new Vue({
+  el: '#twoz',
+  components:{
+    "my-h4":{
+      template:'<h4>星巴克精选</h4>'
+    },
+    "my-h5":{
+      template:'<h5>在星巴克天猫旗舰店发现更多咖啡心意</h5>'
+    },
+  }
+})
+</script>
+
+
+
+                        <!-- 星巴克精选列表 -->
+  <div id="app">
+  <ul>
+    <li v-for="site in sites">
+    <img :src="site.src" alt="" id="one0">
+      <div id="one1">{{ site.wen1 }}</div>
+      <div id="one2">{{ site.wen2 }}</div>
+      <div id="one3">{{ site.wen3 }}</div>
+      <div id="one4">{{ site.wen4 }}</div>
+    </li>
+  </ul>
+</div>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    sites: [
+      { src: 'img/0.png' ,wen1: '会员星礼包' ,wen2:'星享卡新升级',wen3:'更多心意好礼',wen4:'了解更多›'},
+      { src: 'img/1.png' ,wen1: '星礼卡' ,wen2:'用一份心礼',wen3:'让心意相随',wen4:'了解更多›'},
+      { src: 'img/2.png' ,wen1: '电子产品劵' ,wen2:'心意',wen3:'从这一杯开始',wen4:'了解更多›'},
+      { src: 'img/3.png' ,wen1: '咖啡生活' ,wen2:'星巴克',wen3:'用心制作',wen4:'了解更多›'}
+    ]
+  }
+})
+</script>
+
+
+                       <!-- 1912派克街 -->
+ <div id="twoza">
+  <my-h4></my-h4>
+  <my-h5></my-h5>
+  </div>
+  <script>
+new Vue({
+  el: '#twoza',
+  components:{
+    "my-h4":{
+      template:'<h4>1912 派克街 | 咖啡星讲堂</h4>'
+    },
+    "my-h5":{
+      template:'<h5>了解更多星巴克咖啡文化</h5>'
+    },
+  }
+})
+</script>
+
+
+
+                         <!-- 底部轮播图 -->
+<div id="bottom">
+<div class="swiper-container1">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><p id="wenzitu1">咖啡知识</p><img src="img/z.jpg" alt="" id="imgz"><p id="wenzitu">咖啡的起源与培植</p></div>
+        <div class="swiper-slide"><p id="wenzitu1">咖啡品鉴</p><img src="img/x.jpg" alt="" id="imgz"><p id="wenzitu">咖啡调制</p></div>
+        <div class="swiper-slide"><p id="wenzitu1">咖啡知识</p><img src="img/z1.jpg" alt="" id="imgz"><p id="wenzitu">咖啡烘焙</p></div>
+        <div class="swiper-slide"><p id="wenzitu1">咖啡品鉴</p><img src="img/x1.jpg" alt="" id="imgz"><p id="wenzitu">手冲咖啡</p></div>
+    </div>
+</div></div>
+<script>        
+  var mySwiper = new Swiper ('.swiper-container1', {
+    autoplay: false,
+  })        
+  </script>
+
+
+
+                          <!-- 底部标签栏 -->
+   <div id="zapp">
+  <ul>
+    <li v-for="site in sites">
+    <img :src="site.src" alt="" id="zone0">
+      <div id="zone1">{{ site.zwen1 }}</div>
+    </li>
+  </ul>
+</div>
+<script>
+new Vue({
+  el: '#zapp',
+  data: {
+    sites: [
+      { src: 'https://www.starbucks.com.cn/assets/icons/icon-home-active.svg' ,zwen1: '主页'},
+      { src: 'https://www.starbucks.com.cn/assets/icons/icon-stores.svg' ,zwen1: '门店'},
+      { src: 'https://www.starbucks.com.cn/assets/icons/icon-account.svg' ,zwen1: '我的账户'},
+      { src: 'https://www.starbucks.com.cn/assets/icons/icon-menu.svg' ,zwen1: '菜单'},
+      { src: 'https://www.starbucks.com.cn/assets/icons/icon-more.svg' ,zwen1: '更多'}
+      ]
+  }
+})
+</script>
+</body>
+</html>
